@@ -9,6 +9,7 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [/photo](#photo)
     * [/reginfo](#reginfo)
     * [/weeklyschedule](#weeklyschedule)
+    * [/faculty](#faculty)
     * [Error response](#error-response)
 
 ## Endpoint
@@ -137,6 +138,21 @@ Get weekly schedule (Sunday to Saturday)
     ],
     ...
 }
+```
+
+### `/faculty`
+Get faculty info
+#### Response
+```javascript
+[
+    {
+        "subjectShort": "[Android Progr]  [IFTXXXX]",
+        "subject": " Android Programming [Android Progr]  [IFTXXXX] ",
+        "facultyPhoto": "https://...",
+        "name": "Dr Someone"
+    },
+    ...
+]
 ```
 
 ### Error Response
