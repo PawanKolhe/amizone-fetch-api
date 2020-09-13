@@ -32,9 +32,9 @@ POST
 {
     "courses": [
         {
-            "code": "",
-            "name": "",
-            "type": "",
+            "code": "IFTXXXX",
+            "name": "Android Programming",
+            "type": "Compulsory",
             "attendance": {
                 "attended": 17,
                 "total": 17,
@@ -46,11 +46,9 @@ POST
     ]
 }
 ```
-401
+408
 ```json
 {
     "error": "Request Timeout"
 }
 ```
-
-
