@@ -2,9 +2,11 @@
 REST API to fetch data from [Amizone](https://student.amizone.net/) using puppeteer
 
 ## Table of Contents
+* [Endpoint](#endpoint)
 * [Tech Used](#tech-used)
 * [Environment Setup](#environment-setup)
 * [API Docs](#api-docs)
+    * [Getting Started](#getting-started)
     * [/courses](#courses)
     * [/photo](#photo)
     * [/reginfo](#reginfo)
@@ -13,7 +15,8 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [Error response](#error-response)
 * [License](#license)
 
-## Endpoint
+<a id="endpoint"></a>
+## 📡 Endpoint
 Live endpoint: `https://amizone-fetch.herokuapp.com`  
 > You can deploy your own instance on Heroku:
 
@@ -39,6 +42,7 @@ npm run dev
 
 <a id="api-docs"></a>
 ## 📜 API Docs
+### Getting Started
 
 * Use **`POST`** request method for all requests.  
 * Pass the following JSON body for all requests:
@@ -50,6 +54,7 @@ npm run dev
 ```
 > These Amizone login credentials are required for authentication while fetching data.
 
+### Resources
 ### `/courses`
 Get all courses
 #### Response
@@ -166,4 +171,4 @@ HTTP Code: 408
 
 <a id="license"></a>
 ## 📜 License
-This software is open source, licensed under the MIT License.
+This software is open source, licensed under the [MIT License](https://github.com/PawanKolhe/amizone-fetch-api/blob/master/LICENSE).
