@@ -46,7 +46,7 @@ npm run dev
     "password": <YOUR-AMIZONE-PASSWORD>
 }
 ```
-> These Amizone login credentials are required to fetch data.
+> These Amizone login credentials are required for authentication while fetching data.
 
 ### `/courses`
 Get all courses
