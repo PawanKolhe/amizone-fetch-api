@@ -17,7 +17,7 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
 Live endpoint: `https://amizone-fetch.herokuapp.com`  
 > You can deploy your own instance on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PawanKolhe/amizone-fetch)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PawanKolhe/amizone-fetch-api)
 
 <a id="tech-used"></a>
 ## 🧰 Tech Used
