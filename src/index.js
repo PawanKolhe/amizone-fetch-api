@@ -14,7 +14,7 @@ app.post('/courses', async (req, res) => {
     password: req.body.password,
   });
   if(userData.error) {
-    res.status(401).json({
+    res.status(408).json({
       error: userData.error
     });
   } else {
