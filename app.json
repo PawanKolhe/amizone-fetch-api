@@ -3,7 +3,7 @@
   "description": "REST API to fetch data from Amizone using puppeteer",
   "logo": "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
   "image": "heroku/nodejs",
-  "repository": "https://github.com/PawanKolhe/amizone-fetch",
+  "repository": "https://github.com/PawanKolhe/amizone-fetch-api",
   "keywords": ["amizone", "node", "express", "puppeteer", "jsdom"],
   "buildpacks": [
     {
