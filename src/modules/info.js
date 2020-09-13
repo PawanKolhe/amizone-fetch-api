@@ -1,11 +1,12 @@
+const loginToAmizone = require("../utils/login");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const extractCoursesData = (html) => {
-  /* Create Courses page DOM instance with JSDOM */
+const extractInfoData = (html) => {
+  /* Create page DOM instance with JSDOM */
   const coursesDOM = new JSDOM(html);
 
-  /* Extract Courses data */
+  /* Extract data */
   let courses = [];
   coursesDOM.window.document
     .querySelectorAll("#no-more-tables > table [data-title='Course Code']")
@@ -48,4 +49,26 @@ const extractCoursesData = (html) => {
   return courses;
 };
 
-module.exports = extractCoursesData;
+const fetchInfoData = async (credentials) => {
+  const { page, browser, error } = await loginToAmizone(credentials);
+  if(error) {
+    return { error };
+  }
+
+  /* Navigate to page */
+  await page.evaluate(() => document.querySelector("[id='18']").click());
+
+  /* Wait for page API response what provides page HTML */
+  const response = await page.waitForResponse((response) => response.url() === "https://student.amizone.net/Academics/MyCourses?X-Requested-With=XMLHttpRequest" && response.status() === 200);
+  const responseHTML = await response.text();
+
+  /* Get Data */
+  const userData = {};
+  userData.courses = extractInfoData(responseHTML);
+
+  /* Close puppeteer */
+  await browser.close();
+  return userData;
+};
+
+module.exports = fetchInfoData;

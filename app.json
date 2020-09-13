@@ -1,0 +1,15 @@
+{
+  "name": "amizone-fetch",
+  "description": "REST API to fetch data from Amizone using puppeteer",
+  "image": "heroku/nodejs",
+  "repository": "https://github.com/PawanKolhe/amizone-fetch",
+  "keywords": ["amizone", "node", "express", "puppeteer", "jsdom"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    }
+  ]
+}
