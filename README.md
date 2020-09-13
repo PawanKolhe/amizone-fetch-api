@@ -15,3 +15,42 @@ npm install
 ```bash
 npm run dev
 ```
+
+## API Docs
+### `/courses`
+#### Request
+POST
+```json
+{
+    "username": <USERNAME>,
+    "password": <PASSWORD>
+}
+```
+#### Response
+200
+```json
+{
+    "courses": [
+        {
+            "code": "",
+            "name": "",
+            "type": "",
+            "attendance": {
+                "attended": 17,
+                "total": 17,
+                "unattended": 0,
+                "percent": 100
+            }
+        }
+        ...
+    ]
+}
+```
+401
+```json
+{
+    "error": "Request Timeout"
+}
+```
+
+
