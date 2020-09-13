@@ -7,14 +7,12 @@ const extractFacultyData = (html) => {
   const DOM = new JSDOM(html);
 
   const timeline = DOM.window.document.querySelector(".timeline").children;
-  console.log('AA', timeline);
 
   /* Extract data */
   let data = [];
   for(let i = 0; i < timeline.length; i++) {
     data.push({});
     const dataElement = timeline[i].lastElementChild;
-    console.log('BB', dataElement.innerHTML);
     data[i].subjectShort = timeline[i].firstElementChild.innerHTML.replace(/&amp;/g, '&');
     data[i].subject = dataElement.querySelector('.subject > h4') ? dataElement.querySelector('.subject > h4').innerHTML.replace(/&amp;/g, '&') : '';
     data[i].facultyPhoto = dataElement.querySelector('.circle-image > img') ? dataElement.querySelector('.circle-image > img').getAttribute('src') : '';
