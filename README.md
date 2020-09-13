@@ -1,5 +1,5 @@
 # Amizone Fetch
-REST API to fetch data from Amizone using puppeteer
+REST API to fetch data from [Amizone](https://student.amizone.net/) using puppeteer
 
 ## Table of Contents
 * [Tech Used](#tech-used)

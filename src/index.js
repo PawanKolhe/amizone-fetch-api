@@ -3,6 +3,7 @@ const fetchPhotoData = require("./modules/photo");
 const fetchReginfoData = require("./modules/reginfo");
 const fetchWeeklyScheduleData = require("./modules/weeklyschedule");
 
+const path = require("path");
 const express = require("express");
 
 const app = express();
@@ -10,6 +11,10 @@ const port = process.env.PORT || 3000;
 
 /* Express Middleware */
 app.use(express.json());
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/index.html'));
+});
 
 app.post('/courses', async (req, res) => {
   const userData = await fetchCoursesData({
