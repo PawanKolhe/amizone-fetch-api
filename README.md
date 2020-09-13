@@ -7,7 +7,8 @@ REST API to fetch data from Amizone using puppeteer
 * [API Docs](#api-docs)
     * [/courses](#courses)
     * [/photo](#photo)
-    * [/info](#info)
+    * [/reginfo](#reginfo)
+    * [Error response](#error-response)
 
 ## Endpoint
 Live endpoint: https://amizone-fetch.herokuapp.com  
@@ -49,7 +50,7 @@ npm run dev
 ### `/courses`
 Get all courses
 #### Response
-```json
+```javascript
 {
     "courses": [
         {
@@ -71,15 +72,24 @@ Get all courses
 ### `/photo`
 Get photo link
 #### Response
-```json
+```javascript
 {
     "photoUrl": "https://..."
 }
 ```
 
+### `/reginfo`
+Get registration info
+#### Response
+```javascript
+{
+    "": ""
+}
+```
+
 ### Error Response
 HTTP Code: 408
-```json
+```javascript
 {
     "error": "Request Timeout"
 }
