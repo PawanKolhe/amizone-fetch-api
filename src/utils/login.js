@@ -4,7 +4,7 @@ const loginToAmizone = async (credentials) => {
   /* Start puppereer and create new page */
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
-  page.setDefaultTimeout(10000);
+  page.setDefaultTimeout(15000);
 
   /* Go to Login page and Login with provided username and password */
   await page.goto("https://student.amizone.net/", { waitUntil: "domcontentloaded" });

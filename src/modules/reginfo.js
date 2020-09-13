@@ -53,8 +53,7 @@ const fetchReginfoData = async (credentials) => {
   const responseHTML = await response.text();
 
   /* Get Data */
-  const userData = {};
-  userData.reginfo = extractReginfoData(responseHTML);
+  const userData = extractReginfoData(responseHTML);
 
   /* Close puppeteer */
   await browser.close();

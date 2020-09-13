@@ -8,6 +8,7 @@ REST API to fetch data from Amizone using puppeteer
     * [/courses](#courses)
     * [/photo](#photo)
     * [/reginfo](#reginfo)
+    * [/weeklyschedule](#weeklyschedule)
     * [Error response](#error-response)
 
 ## Endpoint
@@ -51,22 +52,20 @@ npm run dev
 Get all courses
 #### Response
 ```javascript
-{
-    "courses": [
-        {
-            "code": "IFTXXXX",
-            "name": "Android Programming",
-            "type": "Compulsory",
-            "attendance": {
-                "attended": 17,
-                "total": 17,
-                "unattended": 0,
-                "percent": 100
-            }
+[
+    {
+        "code": "IFTXXXX",
+        "name": "Android Programming",
+        "type": "Compulsory",
+        "attendance": {
+            "attended": 17,
+            "total": 17,
+            "unattended": 0,
+            "percent": 100
         }
-        ...
-    ]
-}
+    }
+    ...
+]
 ```
 
 ### `/photo`
@@ -83,33 +82,60 @@ Get registration info
 #### Response
 ```javascript
 {
-    "reginfo": {
-        "semester": "5",
-        "photo": "https://...",
-        "enrollmentno": "A...",
-        "name": "John Doe",
-        "program": "B.Sc. Comp. Sci.",
-        "batch": "2018-2021",
-        "dob": "",
-        "email": "",
-        "contactaddress": "",
-        "contactpincode": "",
-        "contactphone": "",
-        "contactmobile": "",
-        "fax": "",
-        "fathername": "",
-        "permanentaddress": "",
-        "permanentpincode": "",
-        "permanentphone": "",
-        "permanentfax": "",
-        "hostel": "",
-        "homeaddress": "",
-        "homecity": "",
-        "homepincode": "",
-        "hometelephone": "",
-        "homemobile": "",
-        "homeemail": ""
-    }
+    "semester": "5",
+    "photo": "https://...",
+    "enrollmentno": "A...",
+    "name": "John Doe",
+    "program": "B.Sc. Comp. Sci.",
+    "batch": "2018-2021",
+    "dob": "",
+    "email": "",
+    "contactaddress": "",
+    "contactpincode": "",
+    "contactphone": "",
+    "contactmobile": "",
+    "fax": "",
+    "fathername": "",
+    "permanentaddress": "",
+    "permanentpincode": "",
+    "permanentphone": "",
+    "permanentfax": "",
+    "hostel": "",
+    "homeaddress": "",
+    "homecity": "",
+    "homepincode": "",
+    "hometelephone": "",
+    "homemobile": "",
+    "homeemail": ""
+}
+```
+
+### `/weeklyschedule`
+Get weekly schedule (Sunday to Saturday)
+#### Response
+```javascript
+{
+    "Monday": [
+        {
+            "fromTime": "09:10",
+            "toTime": "10:00",
+            "courseCode": "IFTXXXX",
+            "courseTeacher": "Mr Someone",
+            "classLocation": "120"
+        },
+        ...
+    ],
+    "Tuesday": [
+        {
+            "fromTime": "09:10",
+            "toTime": "10:00",
+            "courseCode": "IFTXXXX",
+            "courseTeacher": "Ms Someone",
+            "classLocation": "230" 
+        }
+        ...
+    ],
+    ...
 }
 ```
 

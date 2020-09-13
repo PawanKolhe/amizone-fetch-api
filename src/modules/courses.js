@@ -63,8 +63,7 @@ const fetchCoursesData = async (credentials) => {
   const responseHTML = await response.text();
 
   /* Get Data */
-  const userData = {};
-  userData.courses = extractCoursesData(responseHTML);
+  const userData = extractCoursesData(responseHTML);
 
   /* Close puppeteer */
   await browser.close();
