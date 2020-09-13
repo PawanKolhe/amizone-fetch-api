@@ -11,6 +11,7 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [/weeklyschedule](#weeklyschedule)
     * [/faculty](#faculty)
     * [Error response](#error-response)
+* [License](#license)
 
 ## Endpoint
 Live endpoint: `https://amizone-fetch.herokuapp.com`  
@@ -162,3 +163,7 @@ HTTP Code: 408
     "error": "Request Timeout"
 }
 ```
+
+<a id="license"></a>
+## 📜 License
+This software is open source, licensed under the MIT License.
