@@ -8,11 +8,12 @@ REST API to fetch data from Amizone using puppeteer
     * [/courses](#courses)
     * [/photo](#photo)
     * [/info](#info)
-* [Deploy](#deploy)
 
 ## Endpoint
 Live endpoint: https://amizone-fetch.herokuapp.com  
-> You can deploy your own instance on [Heroku](#deploy)
+> You can deploy your own instance on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PawanKolhe/amizone-fetch)
 
 <a id="tech-used"></a>
 ## 🧰 Tech Used
@@ -83,7 +84,3 @@ HTTP Code: 408
     "error": "Request Timeout"
 }
 ```
-
-<a id="deploy"></a>
-## 📥 Deploy
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/heroku/amizone-fetch)
