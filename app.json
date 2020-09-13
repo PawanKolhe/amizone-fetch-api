@@ -1,5 +1,5 @@
 {
-  "name": "amizone-fetch",
+  "name": "Amizone Fetch API",
   "description": "REST API to fetch data from Amizone using puppeteer",
   "logo": "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
   "image": "heroku/nodejs",
