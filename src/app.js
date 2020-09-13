@@ -9,6 +9,10 @@ const fetchAmizoneUserData = async (credentials) => {
   /* Start puppereer and create new page */
   const browser = await puppeteer.launch({
     headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
   });
   const page = await browser.newPage();
   page.setDefaultTimeout(10000);
