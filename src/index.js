@@ -1,5 +1,6 @@
 const fetchCoursesData = require("./modules/courses");
 const fetchPhotoData = require("./modules/photo");
+const fetchReginfoData = require("./modules/reginfo");
 
 const express = require("express");
 
@@ -37,8 +38,8 @@ app.post('/photo', async (req, res) => {
   }
 });
 
-app.post('/info', async (req, res) => {
-  const userData = await fetchInfoData({
+app.post('/reginfo', async (req, res) => {
+  const userData = await fetchReginfoData({
     username: req.body.username,
     password: req.body.password,
   });

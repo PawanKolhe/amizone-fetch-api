@@ -1,6 +1,4 @@
 const loginToAmizone = require("../utils/login");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
 const fetchPhotoData = async (credentials) => {
   const { page, browser, error } = await loginToAmizone(credentials);

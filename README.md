@@ -11,7 +11,7 @@ REST API to fetch data from Amizone using puppeteer
     * [Error response](#error-response)
 
 ## Endpoint
-Live endpoint: https://amizone-fetch.herokuapp.com  
+Live endpoint: `https://amizone-fetch.herokuapp.com`  
 > You can deploy your own instance on Heroku:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PawanKolhe/amizone-fetch)
@@ -39,7 +39,7 @@ npm run dev
 
 * Use **`POST`** request method for all requests.  
 * Pass the following JSON body for all requests:
-```json
+```javascript
 {
     "username": <YOUR-AMIZONE-USERNAME>,
     "password": <YOUR-AMIZONE-PASSWORD>
@@ -83,7 +83,33 @@ Get registration info
 #### Response
 ```javascript
 {
-    "": ""
+    "reginfo": {
+        "semester": "5",
+        "photo": "https://...",
+        "enrollmentno": "A...",
+        "name": "John Doe",
+        "program": "B.Sc. Comp. Sci.",
+        "batch": "2018-2021",
+        "dob": "",
+        "email": "",
+        "contactaddress": "",
+        "contactpincode": "",
+        "contactphone": "",
+        "contactmobile": "",
+        "fax": "",
+        "fathername": "",
+        "permanentaddress": "",
+        "permanentpincode": "",
+        "permanentphone": "",
+        "permanentfax": "",
+        "hostel": "",
+        "homeaddress": "",
+        "homecity": "",
+        "homepincode": "",
+        "hometelephone": "",
+        "homemobile": "",
+        "homeemail": ""
+    }
 }
 ```
 
