@@ -23,7 +23,7 @@ const extractFacultyData = (html) => {
 };
 
 const fetchFacultyData = async (credentials) => {
-  const { page, browser, error } = await loginToAmizone(credentials);
+  const { page, browser, blockResourcesPlugin, error } = await loginToAmizone(credentials);
   if(error) {
     return { error };
   }

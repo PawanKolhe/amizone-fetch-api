@@ -40,7 +40,7 @@ const extractReginfoData = (html) => {
 };
 
 const fetchReginfoData = async (credentials) => {
-  const { page, browser, error } = await loginToAmizone(credentials);
+  const { page, browser, blockResourcesPlugin, error } = await loginToAmizone(credentials);
   if (error) {
     return { error };
   }
@@ -62,6 +62,7 @@ const fetchReginfoData = async (credentials) => {
     await browser.close();
     return userData;
   } catch (e) {
+    console.log(e);
     return { error: 'Request Timeout.' };
   }
 };

@@ -1,22 +1,20 @@
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-extra");
+const blockResourcesPlugin = require('puppeteer-extra-plugin-block-resources')();
+
+puppeteer.use(blockResourcesPlugin);
+
+/* Block certain resources */
+blockResourcesPlugin.blockedTypes.add('image');
+blockResourcesPlugin.blockedTypes.add('stylesheet');
+blockResourcesPlugin.blockedTypes.add('font');
+blockResourcesPlugin.blockedTypes.add('media');
 
 const loginToAmizone = async (credentials) => {
   /* Start puppereer and create new page */
   const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(120000);
-
-  //turns request interceptor on
-  await page.setRequestInterception(true);
-
-  //if the page makes a  request to a resource type of image or stylesheet then abort that request
-  page.on('request', request => {
-    const notAllowed = ['stylesheet', 'media', 'font'];
-    if (notAllowed.find(type => type === request.resourceType()) !== undefined)
-      request.abort();
-    else
-      request.continue();
-  });
 
   try {
     /* Go to Login page and Login with provided username and password */
@@ -31,9 +29,7 @@ const loginToAmizone = async (credentials) => {
     /* Wait for home page request */
     // await page.waitForRequest((request) => request.url() === "https://student.amizone.net/Home", { timeout: 20000 });
 
-    /* Wait for Home page to load */
-    // await page.waitForSelector("#donutchart");
-    return { page, browser };
+    return { page, browser, blockResourcesPlugin };
   } catch (e) {
     console.log(e);
     return { error: 'Request Timeout.' };

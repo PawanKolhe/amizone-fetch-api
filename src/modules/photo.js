@@ -1,10 +1,12 @@
 const loginToAmizone = require("../utils/login");
 
 const fetchPhotoData = async (credentials) => {
-  const { page, browser, error } = await loginToAmizone(credentials);
+  const { page, browser, blockResourcesPlugin, error } = await loginToAmizone(credentials);
   if(error) {
     return { error };
   }
+
+  blockResourcesPlugin.blockedTypes.delete('image');
 
   try {
     await Promise.all([
@@ -14,8 +16,7 @@ const fetchPhotoData = async (credentials) => {
     let photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
 
     /* Get Data */
-    const userData = {};
-    userData.photoUrl = photoUrl;
+    const userData = { photoUrl };
 
     /* Close puppeteer */
     await browser.close();

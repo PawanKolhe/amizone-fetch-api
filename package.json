@@ -14,14 +14,16 @@
   "dependencies": {
     "express": "^4.17.1",
     "jsdom": "^16.4.0",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-block-resources": "^2.2.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/PawanKolhe/amizone-fetch-api.git"
+    "type": "git",
+    "url": "https://github.com/PawanKolhe/amizone-fetch-api.git"
   },
   "engines": {
     "node": "14.x"
