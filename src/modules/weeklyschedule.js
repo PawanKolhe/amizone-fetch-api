@@ -37,6 +37,8 @@ const fetchWeeklyScheduleData = async (credentials) => {
   }
 
   try {
+    await page.waitForSelector("[id='10']");
+
     /* Navigate to page */
     await page.evaluate(() => document.querySelector("[id='10']").click());
 

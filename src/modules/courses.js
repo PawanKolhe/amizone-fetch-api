@@ -56,6 +56,8 @@ const fetchCoursesData = async (credentials) => {
   }
 
   try {
+    await page.waitForSelector("[id='18']");
+
     /* Navigate to page */
     await page.evaluate(() => document.querySelector("[id='18']").click());
 
@@ -70,6 +72,7 @@ const fetchCoursesData = async (credentials) => {
     await browser.close();
     return userData;
   } catch (e) {
+    console.log(e);
     return { error: 'Request Timeout.' };
   }
 };

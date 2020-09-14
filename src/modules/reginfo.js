@@ -46,6 +46,8 @@ const fetchReginfoData = async (credentials) => {
   }
 
   try {
+    await page.waitForSelector("[id='1']");
+
     /* Navigate to page */
     await page.evaluate(() => document.querySelector("[id='1']").click());
 

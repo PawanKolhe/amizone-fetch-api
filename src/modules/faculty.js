@@ -29,6 +29,8 @@ const fetchFacultyData = async (credentials) => {
   }
 
   try {
+    await page.waitForSelector("[id='27']");
+
     /* Navigate to page */
     await page.evaluate(() => document.querySelector("[id='27']").click());
 
