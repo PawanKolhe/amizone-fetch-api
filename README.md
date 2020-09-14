@@ -221,7 +221,7 @@ pip install requests
 Make request
 ```python
 import requests
-response = requests.post("http://api.open-notify.org/astros.json", data = {
+response = requests.post("https://amizone-fetch.glitch.me/photo", data = {
     'username': <YOUR-AMIZONE-USERNAME>,
     'password': <YOUR-AMIZONE-PASSWORD>
 })
