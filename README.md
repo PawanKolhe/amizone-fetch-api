@@ -186,8 +186,8 @@ async function makeAPIRequest() {
     const response = await fetch(`${endpoint}/photo`, {
         method: 'POST',
         body: JSON.stringify({
-            username: <YOUR-AMIZONE-USERNAME>,
-            password: <YOUR-AMIZONE-PASSWORD>
+            'username': <YOUR-AMIZONE-USERNAME>,
+            'password': <YOUR-AMIZONE-PASSWORD>
         })
     });
     return response.json();
@@ -203,8 +203,8 @@ _or_ you can choose to use the [axios](https://github.com/axios/axios) library
 ```
 ```javascript
 axios.post(`/photo`, {
-    username: <YOUR-AMIZONE-USERNAME>,
-    password: <YOUR-AMIZONE-PASSWORD>
+    'username': <YOUR-AMIZONE-USERNAME>,
+    'password': <YOUR-AMIZONE-PASSWORD>
   },{
     baseURL: 'https://amizone-fetch.glitch.me'
   })
@@ -212,6 +212,22 @@ axios.post(`/photo`, {
     console.log(JSON.parse(response.body));
   });
 ```
+
+### Python
+Install requests library
+```bash
+pip install requests
+```
+Make request
+```python
+import requests
+response = requests.post("http://api.open-notify.org/astros.json", data = {
+    'username': <YOUR-AMIZONE-USERNAME>,
+    'password': <YOUR-AMIZONE-PASSWORD>
+})
+print(response.json())
+```
+
 
 <a id="license"></a>
 ## 📜 License
