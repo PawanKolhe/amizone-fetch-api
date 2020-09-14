@@ -18,10 +18,8 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
 
 <a id="endpoint"></a>
 ## 📡 Endpoint
-Live endpoint 1: `https://amizone-fetch.glitch.me`  
-Live endpoint 2: `https://amizone-fetch.herokuapp.com`  
-
-> **Note:** Endpoint 2 _(Heroku)_ has a request timeout of 30 seconds.  
+Live endpoint 1: `https://amizone-fetch.herokuapp.com`  
+Live endpoint 2: `https://amizone-fetch.glitch.me`
 
 _or_
   
@@ -180,7 +178,7 @@ HTTP Code: 408
 ### JavaScript
 You can use the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)  
 ```javascript
-const endpoint = 'https://amizone-fetch.glitch.me';
+const endpoint = 'https://amizone-fetch.herokuapp.com';
 
 async function makeAPIRequest() {
     const response = await fetch(`${endpoint}/photo`, {
@@ -206,7 +204,7 @@ axios.post(`/photo`, {
     'username': '<YOUR-AMIZONE-USERNAME>',
     'password': '<YOUR-AMIZONE-PASSWORD>'
   },{
-    baseURL: 'https://amizone-fetch.glitch.me'
+    baseURL: 'https://amizone-fetch.herokuapp.com'
   })
   .then(function (response) {
     console.log(JSON.parse(response.body));
@@ -221,7 +219,7 @@ pip install requests
 Make request
 ```python
 import requests
-response = requests.post("https://amizone-fetch.glitch.me/photo", data = {
+response = requests.post("https://amizone-fetch.herokuapp.com/photo", data = {
     'username': '<YOUR-AMIZONE-USERNAME>',
     'password': '<YOUR-AMIZONE-PASSWORD>'
 })
