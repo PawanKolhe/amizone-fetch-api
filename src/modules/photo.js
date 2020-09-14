@@ -6,16 +6,20 @@ const fetchPhotoData = async (credentials) => {
     return { error };
   }
 
-  await page.waitForSelector('.nav-user-photo');
-  let photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
+  try {
+    await page.waitForSelector('.nav-user-photo');
+    let photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
 
-  /* Get Data */
-  const userData = {};
-  userData.photoUrl = photoUrl;
+    /* Get Data */
+    const userData = {};
+    userData.photoUrl = photoUrl;
 
-  /* Close puppeteer */
-  await browser.close();
-  return userData;
+    /* Close puppeteer */
+    await browser.close();
+    return userData;
+  } catch (e) {
+    return { error: 'Request Timeout.' };
+  }
 };
 
 module.exports = fetchPhotoData;

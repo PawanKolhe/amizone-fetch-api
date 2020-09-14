@@ -36,19 +36,23 @@ const fetchWeeklyScheduleData = async (credentials) => {
     return { error };
   }
 
-  /* Navigate to page */
-  await page.evaluate(() => document.querySelector("[id='10']").click());
+  try {
+    /* Navigate to page */
+    await page.evaluate(() => document.querySelector("[id='10']").click());
 
-  /* Wait for page API response what provides page HTML */
-  const response = await page.waitForResponse((response) => response.url() === "https://student.amizone.net/TimeTable/Home?X-Requested-With=XMLHttpRequest" && response.status() === 200);
-  const responseHTML = await response.text();
+    /* Wait for page API response what provides page HTML */
+    const response = await page.waitForResponse((response) => response.url() === "https://student.amizone.net/TimeTable/Home?X-Requested-With=XMLHttpRequest" && response.status() === 200);
+    const responseHTML = await response.text();
 
-  /* Get Data */
-  const userData = extractWeeklyScheduleData(responseHTML);
+    /* Get Data */
+    const userData = extractWeeklyScheduleData(responseHTML);
 
-  /* Close puppeteer */
-  await browser.close();
-  return userData;
+    /* Close puppeteer */
+    await browser.close();
+    return userData;
+  } catch (e) {
+    return { error: 'Request Timeout.' };
+  }
 };
 
 module.exports = fetchWeeklyScheduleData;
