@@ -54,8 +54,8 @@ npm run dev
 * Pass the following JSON body for all requests:
 ```javascript
 {
-    "username": <YOUR-AMIZONE-USERNAME>,
-    "password": <YOUR-AMIZONE-PASSWORD>
+    "username": "<YOUR-AMIZONE-USERNAME>",
+    "password": "<YOUR-AMIZONE-PASSWORD>"
 }
 ```
 > These Amizone login credentials are required for authentication while fetching data.
@@ -186,8 +186,8 @@ async function makeAPIRequest() {
     const response = await fetch(`${endpoint}/photo`, {
         method: 'POST',
         body: JSON.stringify({
-            'username': <YOUR-AMIZONE-USERNAME>,
-            'password': <YOUR-AMIZONE-PASSWORD>
+            'username': '<YOUR-AMIZONE-USERNAME>',
+            'password': '<YOUR-AMIZONE-PASSWORD>'
         })
     });
     return response.json();
@@ -203,8 +203,8 @@ _or_ you can choose to use the [axios](https://github.com/axios/axios) library
 ```
 ```javascript
 axios.post(`/photo`, {
-    'username': <YOUR-AMIZONE-USERNAME>,
-    'password': <YOUR-AMIZONE-PASSWORD>
+    'username': '<YOUR-AMIZONE-USERNAME>',
+    'password': '<YOUR-AMIZONE-PASSWORD>'
   },{
     baseURL: 'https://amizone-fetch.glitch.me'
   })
@@ -222,8 +222,8 @@ Make request
 ```python
 import requests
 response = requests.post("https://amizone-fetch.glitch.me/photo", data = {
-    'username': <YOUR-AMIZONE-USERNAME>,
-    'password': <YOUR-AMIZONE-PASSWORD>
+    'username': '<YOUR-AMIZONE-USERNAME>',
+    'password': '<YOUR-AMIZONE-PASSWORD>'
 })
 print(response.json())
 ```
