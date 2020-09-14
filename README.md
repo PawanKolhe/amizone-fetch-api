@@ -12,7 +12,8 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [/reginfo](#reginfo)
     * [/weeklyschedule](#weeklyschedule)
     * [/faculty](#faculty)
-    * [Error response](#error-response)
+    * [Error response](#how-to-use)
+* [How to use](#how-to-use)
 * [License](#license)
 
 <a id="endpoint"></a>
@@ -167,6 +168,27 @@ HTTP Code: 408
 {
     "error": "Request Timeout"
 }
+```
+
+<a id="how-to-use"></a>
+## ❔ How to use
+### JavaScript
+You can use the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+```javascript
+async function makeAPIRequest() {
+    const response = await fetch('https://amizone-fetch.herokuapp.com/courses', {
+        method: 'POST',
+        body: JSON.stringify({
+            username: <YOUR-AMIZONE-USERNAME>,
+            password: <YOUR-AMIZONE-PASSWORD>
+        })
+    });
+    return response.json();
+}
+
+makeAPIRequest().then((data) => {
+    console.log(data);
+});
 ```
 
 <a id="license"></a>

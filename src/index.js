@@ -12,6 +12,11 @@ const port = process.env.PORT || 3000;
 
 /* Express Middleware */
 app.use(express.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+});
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/views/index.html'));
