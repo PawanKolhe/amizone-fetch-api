@@ -16,13 +16,9 @@ const loginToAmizone = async (credentials) => {
     }, credentials);
 
     /* Wait for home page request */
-    await page.waitForRequest((request) => request.url() === "https://student.amizone.net/Home", { timeout: 30000 });
+    await page.waitForRequest((request) => request.url() === "https://student.amizone.net/Home", { timeout: 20000 });
   } catch (e) {
-    if (e instanceof puppeteer.errors.TimeoutError) {
-      return { error: 'Request Timeout. Amizone credentials might be incorrect.' };
-    } else {
-      return { error: 'Server encountered an error. Amizone credentials might be incorrect.' };
-    }
+    return { error: 'Request Timeout. Amizone credentials might be incorrect.' };
   }
     
   try {

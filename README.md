@@ -18,9 +18,14 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
 
 <a id="endpoint"></a>
 ## 📡 Endpoint
-Live endpoint: `https://amizone-fetch.herokuapp.com`  
-> You can deploy your own instance on Heroku:
+Live endpoint 1: `https://amizone-fetch.glitch.me`  
+Live endpoint 2: `https://amizone-fetch.herokuapp.com`  
 
+> **Note:** Endpoint 2 _(Heroku)_ has a request timeout of 30 seconds.  
+
+_or_
+  
+#### You can deploy your own instance on Heroku:  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PawanKolhe/amizone-fetch-api)
 
 <a id="tech-used"></a>
@@ -173,10 +178,12 @@ HTTP Code: 408
 <a id="how-to-use"></a>
 ## ❔ How to use
 ### JavaScript
-You can use the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+You can use the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)  
 ```javascript
+const endpoint = 'https://amizone-fetch.glitch.me';
+
 async function makeAPIRequest() {
-    const response = await fetch('https://amizone-fetch.herokuapp.com/courses', {
+    const response = await fetch(`${endpoint}/photo`, {
         method: 'POST',
         body: JSON.stringify({
             username: <YOUR-AMIZONE-USERNAME>,
@@ -189,6 +196,21 @@ async function makeAPIRequest() {
 makeAPIRequest().then((data) => {
     console.log(data);
 });
+```
+_or_ you can choose to use the [axios](https://github.com/axios/axios) library
+```html
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+```javascript
+axios.post(`/photo`, {
+    username: <YOUR-AMIZONE-USERNAME>,
+    password: <YOUR-AMIZONE-PASSWORD>
+  },{
+    baseURL: 'https://amizone-fetch.glitch.me'
+  })
+  .then(function (response) {
+    console.log(JSON.parse(response.body));
+  });
 ```
 
 <a id="license"></a>
