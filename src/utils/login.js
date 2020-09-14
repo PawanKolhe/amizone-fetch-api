@@ -11,7 +11,7 @@ const loginToAmizone = async (credentials) => {
 
   //if the page makes a  request to a resource type of image or stylesheet then abort that request
   page.on('request', request => {
-    const notAllowed = ['image', 'stylesheet', 'media', 'font'];
+    const notAllowed = ['stylesheet', 'media', 'font'];
     if (notAllowed.find(type => type === request.resourceType()) !== undefined)
       request.abort();
     else

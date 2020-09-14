@@ -7,7 +7,10 @@ const fetchPhotoData = async (credentials) => {
   }
 
   try {
-    await page.waitForSelector('.nav-user-photo');
+    await Promise.all([
+      page.waitForSelector("#donutchart"),
+      page.waitForSelector('.nav-user-photo')
+    ]);
     let photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
 
     /* Get Data */

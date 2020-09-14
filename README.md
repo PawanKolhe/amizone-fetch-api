@@ -18,8 +18,7 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
 
 <a id="endpoint"></a>
 ## 📡 Endpoint
-Live endpoint 1: `https://amizone-fetch.herokuapp.com`  
-Live endpoint 2: `https://amizone-fetch.glitch.me`
+Live endpoint : `https://amizone-fetch.herokuapp.com`  
 
 _or_
   
@@ -180,18 +179,18 @@ You can use the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/W
 ```javascript
 const endpoint = 'https://amizone-fetch.herokuapp.com';
 
-async function makeAPIRequest() {
-    const response = await fetch(`${endpoint}/photo`, {
-        method: 'POST',
-        body: JSON.stringify({
-            'username': '<YOUR-AMIZONE-USERNAME>',
-            'password': '<YOUR-AMIZONE-PASSWORD>'
-        })
-    });
-    return response.json();
-}
-
-makeAPIRequest().then((data) => {
+fetch(`${endpoint}/courses`, {
+    method: 'POST',
+    body: JSON.stringify({
+        'username': '<YOUR-AMIZONE-USERNAME>',
+        'password': '<YOUR-AMIZONE-PASSWORD>'
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => response.json())
+.then(data => {
     console.log(data);
 });
 ```
@@ -207,7 +206,7 @@ axios.post(`/photo`, {
     baseURL: 'https://amizone-fetch.herokuapp.com'
   })
   .then(function (response) {
-    console.log(JSON.parse(response.body));
+    console.log(response.data);
   });
 ```
 
