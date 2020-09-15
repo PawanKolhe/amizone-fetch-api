@@ -13,7 +13,8 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [/grades](#grades)
     * [/photo](#photo)
     * [/reginfo](#reginfo)
-    * [/weeklyschedule](#weeklyschedule)
+    * [/schedule/today](#scheduletoday)
+    * [/schedule/weekly](#scheduleweek)
     * [Error response](#how-to-use)
 * [How to use](#how-to-use)
 * [License](#license)
@@ -179,7 +180,26 @@ Get registration info
 }
 ```
 
-### `/weeklyschedule`
+### `/schedule/today`
+Get today's schedule
+#### Response
+```javascript
+[
+    {
+        "courseTitle": "ASP.NET with C# Programming",
+        "courseCode": "IFTXXXX",
+        "facultyName": "Mr Someone",
+        "start": "9/15/2020 9:10:00 AM",
+        "end": "9/15/2020 10:00:00 AM",
+        "roomNumber": "320",
+        "attendanceColor": "#3a87ad",
+        "allDay": false
+    },
+    ...
+]
+```
+
+### `/schedule/week`
 Get weekly schedule (Sunday to Saturday)
 #### Response
 ```javascript

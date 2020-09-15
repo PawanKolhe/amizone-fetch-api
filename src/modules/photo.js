@@ -6,22 +6,18 @@ const fetchPhotoData = async (credentials) => {
     return { error };
   }
 
-  blockResourcesPlugin.blockedTypes.delete('image');
-
   try {
-    await Promise.all([
-      page.waitForSelector("#donutchart"),
-      page.waitForSelector('.nav-user-photo')
-    ]);    
+    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
 
     /* Get Data */
-    const photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
+    const photoUrl = await page.evaluate(() => document.body.innerHTML.match(/(?<=imageUrl = ').*?(?=';)/)[0]);
     const userData = { photoUrl };
 
     /* Close puppeteer */
     await browser.close();
     return userData;
   } catch (e) {
+    console.log(e);
     return { error: 'Request Timeout.' };
   }
 };

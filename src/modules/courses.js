@@ -61,7 +61,7 @@ const fetchCoursesData = async (credentials) => {
     await page.evaluate(() => document.querySelector("[id='18']").click());
 
     /* Wait for page API response what provides page HTML */
-    const response = await page.waitForResponse((response) => response.url() === "https://student.amizone.net/Academics/MyCourses?X-Requested-With=XMLHttpRequest" && response.status() === 200);
+    const response = await page.waitForResponse((response) => response.url().startsWith("https://student.amizone.net/Academics/MyCourses") && response.status() === 200);
     const responseHTML = await response.text();
 
     /* Get Data */

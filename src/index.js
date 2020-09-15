@@ -1,9 +1,10 @@
 const fetchCoursesData = require("./modules/courses");
+const fetchGradesData = require("./modules/grades");
+const fetchFacultyData = require("./modules/faculty");
 const fetchPhotoData = require("./modules/photo");
 const fetchReginfoData = require("./modules/reginfo");
-const fetchWeeklyScheduleData = require("./modules/weeklyschedule");
-const fetchFacultyData = require("./modules/faculty");
-const fetchGradesData = require("./modules/grades");
+const fetchTodayScheduleData = require("./modules/todayschedule");
+const fetchWeekScheduleData = require("./modules/weekSchedule");
 const fetchCredentialsData = require("./modules/credentials");
 
 const path = require("path");
@@ -108,8 +109,22 @@ app.post('/reginfo', async (req, res) => {
   }
 });
 
-app.post('/weeklyschedule', async (req, res) => {
-  const userData = await fetchWeeklyScheduleData({
+app.post('/schedule/today', async (req, res) => {
+  const userData = await fetchTodayScheduleData({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  if(userData.error) {
+    res.status(408).json({
+      error: userData.error
+    });
+  } else {
+    res.json(userData);
+  }
+});
+
+app.post('/schedule/week', async (req, res) => {
+  const userData = await fetchWeekScheduleData({
     username: req.body.username,
     password: req.body.password,
   });

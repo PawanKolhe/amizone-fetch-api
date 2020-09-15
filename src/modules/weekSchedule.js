@@ -2,7 +2,7 @@ const loginToAmizone = require("../utils/login");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const extractWeeklyScheduleData = (html) => {
+const extractWeekScheduleData = (html) => {
   /* Create page DOM instance with JSDOM */
   const DOM = new JSDOM(html);
   const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -11,7 +11,6 @@ const extractWeeklyScheduleData = (html) => {
   /* Extract data */
   weekdays.forEach((weekday) => {
     const weekdayHtmlList = DOM.window.document.querySelector(`#${weekday} > .row`).children;
-    // console.log(weekday, DOM.window.document.body.querySelector(`#Tuesday > .row`).children[0].firstElementChild.innerHTML);
     if(weekdayHtmlList && weekdayHtmlList.length) {
       data[weekday] = [];
       for(let i = 0; i < weekdayHtmlList.length; i++) {
@@ -30,7 +29,7 @@ const extractWeeklyScheduleData = (html) => {
   return data;
 };
 
-const fetchWeeklyScheduleData = async (credentials) => {
+const fetchWeekScheduleData = async (credentials) => {
   const { page, browser, blockResourcesPlugin, error } = await loginToAmizone(credentials);
   if(error) {
     return { error };
@@ -43,11 +42,11 @@ const fetchWeeklyScheduleData = async (credentials) => {
     await page.evaluate(() => document.querySelector("[id='10']").click());
 
     /* Wait for page API response what provides page HTML */
-    const response = await page.waitForResponse((response) => response.url() === "https://student.amizone.net/TimeTable/Home?X-Requested-With=XMLHttpRequest" && response.status() === 200);
+    const response = await page.waitForResponse((response) => response.url().startsWith("https://student.amizone.net/TimeTable/Home") && response.status() === 200);
     const responseHTML = await response.text();
 
     /* Get Data */
-    const userData = extractWeeklyScheduleData(responseHTML);
+    const userData = extractWeekScheduleData(responseHTML);
 
     /* Close puppeteer */
     await browser.close();
@@ -58,4 +57,4 @@ const fetchWeeklyScheduleData = async (credentials) => {
   }
 };
 
-module.exports = fetchWeeklyScheduleData;
+module.exports = fetchWeekScheduleData;
