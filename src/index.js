@@ -3,7 +3,7 @@ const fetchGradesData = require("./modules/grades");
 const fetchFacultyData = require("./modules/faculty");
 const fetchPhotoData = require("./modules/photo");
 const fetchReginfoData = require("./modules/reginfo");
-const fetchTodayScheduleData = require("./modules/todayschedule");
+const fetchTodayScheduleData = require("./modules/todaySchedule");
 const fetchWeekScheduleData = require("./modules/weekSchedule");
 const fetchCredentialsData = require("./modules/credentials");
 
