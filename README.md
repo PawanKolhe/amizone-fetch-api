@@ -8,10 +8,12 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
 * [API Docs](#api-docs)
     * [Getting Started](#getting-started)
     * [/courses](#courses)
+    * [/credentials](#credentials)
+    * [/faculty](#faculty)
+    * [/grades](#grades)
     * [/photo](#photo)
     * [/reginfo](#reginfo)
     * [/weeklyschedule](#weeklyschedule)
-    * [/faculty](#faculty)
     * [Error response](#how-to-use)
 * [How to use](#how-to-use)
 * [License](#license)
@@ -73,7 +75,64 @@ Get all courses
             "unattended": 0,
             "percent": 100
         }
-    }
+    },
+    ...
+]
+```
+
+### `/credentials`
+Get all credentials available on the amizone home page
+#### Response
+```javascript
+{
+    "amityEmail": {
+        "id": "",
+        "password": ""
+    },
+    "msTeams": {
+        "id": "",
+        "password": ""
+    },
+    "opac": {
+        "id": "",
+        "password": ""
+    },
+    "formNumber": ""
+}
+```
+
+### `/faculty`
+Get faculty info
+#### Response
+```javascript
+[
+    {
+        "subjectShort": "[Android Progr]  [IFTXXXX]",
+        "subject": " Android Programming [Android Progr]  [IFTXXXX] ",
+        "facultyPhoto": "https://...",
+        "name": "Dr Someone"
+    },
+    ...
+]
+```
+
+### `/grades`
+Get grades info
+#### Response
+```javascript
+[
+    {
+        "semester": "1",
+        "sgpa": "9.36",
+        "cgpa": "",
+        "backPapers": "0"
+    },
+    {
+        "semester": "2",
+        "sgpa": "9.44",
+        "cgpa": "9.40",
+        "backPapers": "0"
+    },
     ...
 ]
 ```
@@ -147,21 +206,6 @@ Get weekly schedule (Sunday to Saturday)
     ],
     ...
 }
-```
-
-### `/faculty`
-Get faculty info
-#### Response
-```javascript
-[
-    {
-        "subjectShort": "[Android Progr]  [IFTXXXX]",
-        "subject": " Android Programming [Android Progr]  [IFTXXXX] ",
-        "facultyPhoto": "https://...",
-        "name": "Dr Someone"
-    },
-    ...
-]
 ```
 
 ### Error Response

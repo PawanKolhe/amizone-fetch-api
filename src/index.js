@@ -3,6 +3,8 @@ const fetchPhotoData = require("./modules/photo");
 const fetchReginfoData = require("./modules/reginfo");
 const fetchWeeklyScheduleData = require("./modules/weeklyschedule");
 const fetchFacultyData = require("./modules/faculty");
+const fetchGradesData = require("./modules/grades");
+const fetchCredentialsData = require("./modules/credentials");
 
 const path = require("path");
 const express = require("express");
@@ -24,6 +26,48 @@ app.get('/', function(req, res) {
 
 app.post('/courses', async (req, res) => {
   const userData = await fetchCoursesData({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  if(userData.error) {
+    res.status(408).json({
+      error: userData.error
+    });
+  } else {
+    res.json(userData);
+  }
+});
+
+app.post('/credentials', async (req, res) => {
+  const userData = await fetchCredentialsData({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  if(userData.error) {
+    res.status(408).json({
+      error: userData.error
+    });
+  } else {
+    res.json(userData);
+  }
+});
+
+app.post('/faculty', async (req, res) => {
+  const userData = await fetchFacultyData({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  if(userData.error) {
+    res.status(408).json({
+      error: userData.error
+    });
+  } else {
+    res.json(userData);
+  }
+});
+
+app.post('/grades', async (req, res) => {
+  const userData = await fetchGradesData({
     username: req.body.username,
     password: req.body.password,
   });
@@ -66,20 +110,6 @@ app.post('/reginfo', async (req, res) => {
 
 app.post('/weeklyschedule', async (req, res) => {
   const userData = await fetchWeeklyScheduleData({
-    username: req.body.username,
-    password: req.body.password,
-  });
-  if(userData.error) {
-    res.status(408).json({
-      error: userData.error
-    });
-  } else {
-    res.json(userData);
-  }
-});
-
-app.post('/faculty', async (req, res) => {
-  const userData = await fetchFacultyData({
     username: req.body.username,
     password: req.body.password,
   });

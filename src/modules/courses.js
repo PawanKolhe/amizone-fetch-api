@@ -38,8 +38,7 @@ const extractCoursesData = (html) => {
     course.attendance = {};
     course.attendance.attended = parseInt(strArr2[0]);
     course.attendance.total = parseInt(strArr2[1]);
-    course.attendance.unattended =
-      course.attendance.total - course.attendance.attended;
+    course.attendance.unattended = course.attendance.total - course.attendance.attended;
     course.attendance.percent = parseFloat(
       strArr[1].substring(1, strArr[1].length - 1)
     );

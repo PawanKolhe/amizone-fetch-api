@@ -12,10 +12,10 @@ const fetchPhotoData = async (credentials) => {
     await Promise.all([
       page.waitForSelector("#donutchart"),
       page.waitForSelector('.nav-user-photo')
-    ]);
-    let photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
+    ]);    
 
     /* Get Data */
+    const photoUrl = await page.evaluate(() => document.querySelector('.nav-user-photo').getAttribute('src'));
     const userData = { photoUrl };
 
     /* Close puppeteer */

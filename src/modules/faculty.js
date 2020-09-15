@@ -45,6 +45,7 @@ const fetchFacultyData = async (credentials) => {
     await browser.close();
     return userData;
   } catch (e) {
+    console.log(e);
     return { error: 'Request Timeout.' };
   }
 };
