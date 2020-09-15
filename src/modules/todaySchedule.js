@@ -36,7 +36,7 @@ const fetchTodayScheduleData = async (credentials) => {
       });
 
     /* Close puppeteer */
-    // await browser.close();
+    await browser.close();
     return userData;
   } catch (e) {
     console.log(e);

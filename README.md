@@ -263,7 +263,7 @@ _or_ you can choose to use the [axios](https://github.com/axios/axios) library
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 ```
 ```javascript
-axios.post(`/photo`, {
+axios.post(`/courses`, {
     'username': '<YOUR-AMIZONE-USERNAME>',
     'password': '<YOUR-AMIZONE-PASSWORD>'
   },{
@@ -282,7 +282,7 @@ pip install requests
 Make request
 ```python
 import requests
-response = requests.post("https://amizone-fetch.herokuapp.com/photo", data = {
+response = requests.post("https://amizone-fetch.herokuapp.com/courses", data = {
     'username': '<YOUR-AMIZONE-USERNAME>',
     'password': '<YOUR-AMIZONE-PASSWORD>'
 })
