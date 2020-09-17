@@ -17,6 +17,8 @@ REST API to fetch data from [Amizone](https://student.amizone.net/) using puppet
     * [/schedule/weekly](#scheduleweek)
     * [Error response](#how-to-use)
 * [How to use](#how-to-use)
+    * [JavaScript](#javascript)
+    * [Python](#python)
 * [License](#license)
 
 <a id="endpoint"></a>
